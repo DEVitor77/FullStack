@@ -38,6 +38,9 @@ public class UserController {
     @PostMapping // Define que este método lida com requisições HTTP POST.
     public UserResponseDto salvar(@RequestBody UserRequestDto userRequestDto) {
         // Chama o serviço para salvar o usuário e retorna a resposta.
+
+        System.out.println(userRequestDto);
+
         return userService.save(userRequestDto);
     }
 }
