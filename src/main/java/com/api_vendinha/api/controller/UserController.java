@@ -2,12 +2,10 @@ package com.api_vendinha.api.controller;
 
 import com.api_vendinha.api.domain.dtos.request.UserRequestDto;
 import com.api_vendinha.api.domain.dtos.response.UserResponseDto;
+import com.api_vendinha.api.domain.entities.User;
 import com.api_vendinha.api.domain.service.UserServiceInterface;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * Controlador REST para gerenciar operações relacionadas aos usuários.
@@ -38,9 +36,14 @@ public class UserController {
     @PostMapping // Define que este método lida com requisições HTTP POST.
     public UserResponseDto salvar(@RequestBody UserRequestDto userRequestDto) {
         // Chama o serviço para salvar o usuário e retorna a resposta.
-
-        System.out.println(userRequestDto);
-
         return userService.save(userRequestDto);
+    }
+
+    @PutMapping("/{id}")
+    public UserResponseDto update(
+            @PathVariable Long id,
+            @RequestBody UserRequestDto userRequestDto
+    ){
+        return userService.update(id, userRequestDto);
     }
 }

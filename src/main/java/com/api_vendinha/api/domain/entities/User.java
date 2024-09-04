@@ -20,18 +20,27 @@ public class User {
 
     /**
      * Identificador único do usuário.
-     *
+     * <p>
      * Este campo é a chave primária da entidade e será gerado automaticamente pelo banco de dados.
      */
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY) // Define que o valor do ID será gerado automaticamente pelo banco de dados (auto-incremento).
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    // Define que o valor do ID será gerado automaticamente pelo banco de dados (auto-incremento).
     private Long id;
 
-    /**
-     * Nome do usuário.
-     *
-     * Este campo é obrigatório e não pode ser nulo, refletindo a necessidade de um nome para cada usuário.
-     */
-    @Column(nullable = false) // Especifica que a coluna no banco de dados não pode ser nula.
+
+    @Column(name = "name") // Especifica que a coluna no banco de dados não pode ser nula.
     private String name;
+
+    @Column(name = "email")
+    private String email;
+
+    @Column(name = "password")
+    private String password;
+
+    @Column(name = "is_active")
+    private Boolean is_active;
+
+    @Column(name = "cpf_cnpj")
+    private String cpf_cnpj;
 }

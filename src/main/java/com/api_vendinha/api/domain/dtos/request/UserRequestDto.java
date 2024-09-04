@@ -12,8 +12,18 @@ public class UserRequestDto {
 
     /**
      * Nome do usuário.
-     *
+     * <p>
      * Este campo é obrigatório e será utilizado para criar ou atualizar um usuário no sistema.
      */
     private String name;
+
+    private String email;
+
+    private String password;
+
+    private Boolean is_active;
+
+    private String cpf_cnpj;
+
 }
+
